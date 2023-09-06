@@ -1,0 +1,27 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
+public class MouseListenerExample {
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("Mouse Listener Example");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(400, 400);
+
+        JPanel panel = new JPanel();
+        panel.setBackground(Color.WHITE);
+
+        panel.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                int x = e.getX();
+                int y = e.getY();
+                System.out.println("Mouse clicked at (" + x + ", " + y + ")");
+            }
+        });
+
+        frame.add(panel);
+        frame.setVisible(true);
+    }
+}
